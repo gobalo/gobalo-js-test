@@ -11,8 +11,9 @@ Clone this repo and install node dependencies
 npm install
 ```
 
-To execute tests use 
+To begin the test start editing the file "test/answers.js" and run:
 
 ```shell
-grunt test
+grunt tests
 ```
+to check if the results are ok
