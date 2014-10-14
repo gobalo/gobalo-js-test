@@ -70,17 +70,17 @@ function testVanilaJS(){
  * 2. add(2)(3) === 5
  * 3. add(5)(3) === 8
  */
-/*
- * Edit from here
- */
 function add(n){
+	/*
+	 * Edit from here
+	 */
 	return function(m){
 		return n + m;
 	}
+	/*
+	 * To here
+	 */
 }
-/*
- * To here
- */
 
 
 
@@ -127,10 +127,10 @@ Bee.prototype.unloadHoney = function() {
  * 	  logOnce("a") // -> "a"
  *    logOnce("b") // -> no effect
  */
-/*
- * Edit from here
- */
 function once(fn){
+	/*
+	 * Edit from here
+	 */
 	var callable = true;
 	return function(){
 		if(callable){
@@ -138,10 +138,10 @@ function once(fn){
 			return fn.apply(this, arguments);
 		}
 	}
+	/*
+	 * To here
+	 */
 }
-/*
- * To here
- */
 
 
 
