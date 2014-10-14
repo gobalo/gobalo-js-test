@@ -34,48 +34,42 @@
  	});
 	
 	
+	function domTests(){
+		var $futureDiv = $('#content > *');
+		strictEqual($futureDiv.length, 1, 'Solo debe haber un div dentro de #content');
+		
+		strictEqual($futureDiv.first().attr('id'), 'testDiv', 'La id debe ser testDiv');
+		strictEqual($futureDiv.first().css('background-color'), 'rgb(204, 204, 204)', 'El color de fondo no es correcto');
+		strictEqual($futureDiv.first().css('width'), '100px', 'El ancho no es correcto');
+		strictEqual($futureDiv.first().css('height'), '50px', 'El alto no es correcto');
+		
+		
+		var $firstInserted = $futureDiv.find('p'),
+			$lastInserted = $futureDiv.find('span');
+			
+		strictEqual($futureDiv.find('p, span').length, 2, 'Dentro del div solo debe haber un parrafo y un span');
+		
+		notEqual($firstInserted, $lastInserted, 'El parrafo y el span son los mismos');
+		
+		notEqual($firstInserted.text(), $lastInserted.text(), 'El parrafo y el span deben tener textos diferentes');
+		
+		strictEqual($firstInserted.prev().text(), $lastInserted.text(), 'El span debe estar antes del parrafo');
+	}
+	
 	test('jQuery', function(){
- 		expect(6);
+ 		expect(9);
  		
  		window.testjQuery();
 		
-		var $futureDiv = $('#content > *');
-		strictEqual($futureDiv.length, 1, 'Solo debe haber un div dentro de #content');
-		
-		strictEqual($futureDiv.first().css('background-color'), 'rgb(204, 204, 204)', 'El color de fondo no es correcto');
-		
-		var $firstInserted = $futureDiv.find('p'),
-			$lastInserted = $futureDiv.find('span');
-			
-		strictEqual($futureDiv.find('p, span').length, 2, 'Dentro del div solo debe haber un parrafo y un span');
-		
-		notEqual($firstInserted, $lastInserted, 'El parrafo y el span son los mismos');
-		
-		notEqual($firstInserted.text(), $lastInserted.text(), 'El parrafo y el span deben tener textos diferentes');
-		
-		strictEqual($firstInserted.prev().text(), $lastInserted.text(), 'El span debe estar antes del parrafo');
+		domTests();
 	});
 	
 	test('vanillaJS', function(){
- 		expect(6);
+ 		expect(9);
  		
  		window.testVanilaJS();
 		
-		var $futureDiv = $('#content > *');
-		strictEqual($futureDiv.length, 1, 'Solo debe haber un div dentro de #content');
-		
-		strictEqual($futureDiv.first().css('background-color'), 'rgb(204, 204, 204)', 'El color de fondo no es correcto');
-		
-		var $firstInserted = $futureDiv.find('p'),
-			$lastInserted = $futureDiv.find('span');
-			
-		strictEqual($futureDiv.find('p, span').length, 2, 'Dentro del div solo debe haber un parrafo y un span');
-		
-		notEqual($firstInserted, $lastInserted, 'El parrafo y el span son los mismos');
-		
-		notEqual($firstInserted.text(), $lastInserted.text(), 'El parrafo y el span deben tener textos diferentes');
-		
-		strictEqual($firstInserted.prev().text(), $lastInserted.text(), 'El span debe estar antes del parrafo');
+		domTests();
 	});
 	
 	

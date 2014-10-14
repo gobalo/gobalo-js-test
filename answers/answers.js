@@ -19,8 +19,11 @@ function testjQuery(){
 	 * Edit from here
 	 */
 	var $div = $('<div>', {
+		id: 'testDiv',
 		css: {
-			backgroundColor: '#ccc'
+			backgroundColor: '#ccc',
+			width: 100,
+			height: 50
 		}
 	});
 	
@@ -44,7 +47,10 @@ function testVanilaJS(){
 	 * Edit from here
 	 */
 	var div = document.createElement("div");
+	div.id = 'testDiv';
 	div.style.backgroundColor = '#cccccc';
+	div.style.width = '100px';
+	div.style.height = '50px';
 	
 	var content = document.getElementById('content');
 	content.appendChild(div);
