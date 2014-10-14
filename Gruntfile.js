@@ -13,39 +13,34 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     qunit: {
-      files: ['test/**/*.html'],
-      options: {
-        timeout: 30000,
-        "--web-security": "no",
-        coverage: {
-          disposeCollector: true,
-          src: ['src/**/*.js'],
-          instrumentedFiles: "temp/",
-          htmlReport: "reports/coverage",
-          lcovReport: "reports/lcov",
-          coberturaReport: "reports/",
-          linesThresholdPct: 0
+      tests: {
+      	src: ['test/**/*.html'],
+        options: {
+          timeout: 30000,
+          "--web-security": "no"
         }
-      }
+      },
+      answers: {
+      	src: ['answers/**/*.html'],
+        options: {
+          timeout: 30000,
+          "--web-security": "no"
+        }
+      },
+      
     },
     jshint: {
-      gruntfile: {
-        options: {
-          jshintrc: '.jshintrc'
-        },
-        src: 'Gruntfile.js'
-      },
-      test: {
+      tests: {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/**/*.js']
+        src: ['test/test.js']
       },
-      test1: {
+      answers: {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test1/arrays.js']
+        src: ['answers/test.js']
       },
     },
     watch: {
@@ -55,7 +50,7 @@ module.exports = function(grunt) {
       },
       test: {
         files: '<%= jshint.test.src %>',
-        tasks: ['jshint:test', 'qunit']
+        tasks: ['jshint', 'qunit']
       },
     },
   });
@@ -68,6 +63,8 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit']);
   
-  grunt.registerTask('test1', ['jshint:test1', 'qunit']);
+  grunt.registerTask('answers', ['jshint:answers', 'qunit:answers']);
+  
+  grunt.registerTask('tests', ['jshint:tests', 'qunit:tests']);
 
 };
