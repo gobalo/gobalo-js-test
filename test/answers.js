@@ -75,15 +75,15 @@ function Hive(){
 Hive.prototype.addHoney = function(honey) {
   return this.honey += honey;
 };
-/*
- * Edit from here
- */
 function Bee(hive){
 	this.capacity = 11;
 	this.hive = hive;
 }
+/*
+ * Edit from here
+ */
 Bee.prototype.unloadHoney = function() {
-	this.hive.addHoney(this.capacity);
+	//hive.addHoney(this.capacity);
 };
 /*
  * To here
