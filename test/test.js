@@ -82,12 +82,12 @@
 		var theHive = new Hive();
 		var theBee = new Bee(theHive);
 		
-		strictEqual(theBee.capacity, 11, 'The bee does not have the expected capacity');
-		strictEqual(theHive.honey, 100, 'Hive.honey does not have a valid value');
+		strictEqual(theBee.capacity, 11, 'La cantidad máxima que puede portar la abeja es 11');
+		strictEqual(theHive.honey, 100, 'La miel inicial en la colmena debe ser 100');
 		
 		theBee.unloadHoney();
 		
-		strictEqual(theHive.honey, 111, "hive.honey amount does not have a valid value");
+		strictEqual(theHive.honey, 111, "Despues de que la abeja descargue la miel, en la colmena debe haber 111");
 	});
 	
 	
