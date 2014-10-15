@@ -1,5 +1,4 @@
 # gobalo-js-tests
-=================
 
 ## Getting Started
 This repo requires Node.js & Grunt.
