@@ -36,12 +36,6 @@ module.exports = function(grunt) {
         },
         src: ['test/test.js']
       },
-      answers: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['answers/test.js']
-      },
     },
     watch: {
       gruntfile: {
@@ -62,8 +56,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit']);
-  
-  grunt.registerTask('answers', ['jshint:answers', 'qunit:answers']);
   
   grunt.registerTask('tests', ['jshint:tests', 'qunit:tests']);
 
