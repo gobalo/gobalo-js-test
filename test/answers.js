@@ -13,19 +13,25 @@
  * 1. Inserta dentro de este elemento un <div> con id "testDiv", con las medidas 100x50px de ancho y con el color de fondo "#cccccc"
  * 2. Dentro del nuevo "testDiv" inserta un <p> con cualquier texto
  * 3. Por último inserta un <span> con otro texto diferente ANTES del <p> anterior
- * 4. El html resultante sería:
- * 	<div id="content">
- * 		<div id="testDiv" style="width:100px;height:50px:background-color:#ccc;">
- * 			<span>Esto es un span</span>
- * 			<p>Esto es un parrafo</p>
- * 		</div>
- * 	</div>
  */
 function testjQuery(){
 	/*
 	 * Edit from here
 	 */
+	var $div = $('<div>', {
+		id: 'testDiv',
+		css: {
+			backgroundColor: '#ccc',
+			width: 100,
+			height: 50
+		}
+	});
 	
+	$('#content').append($div);
+	
+	$div.append('<p>Soy un parrafo</p>');
+	
+	$div.prepend('<span>Soy un span</span>');
 	/*
 	 * To here
 	 */
@@ -40,7 +46,22 @@ function testVanilaJS(){
 	/*
 	 * Edit from here
 	 */
+	var div = document.createElement("div");
+	div.id = 'testDiv';
+	div.style.backgroundColor = '#cccccc';
+	div.style.width = '100px';
+	div.style.height = '50px';
 	
+	var content = document.getElementById('content');
+	content.appendChild(div);
+	
+	var p = document.createElement("p");
+	p.innerHTML = 'Soy un parrafo';
+	div.appendChild(p);
+	
+	var span = document.createElement("span");
+	span.innerHTML = 'Soy un span';
+	div.insertBefore(span, p);
 	/*
 	 * To here
 	 */
@@ -59,7 +80,9 @@ function add(n){
 	/*
 	 * Edit from here
 	 */
-	
+	return function(m){
+		return n + m;
+	}
 	/*
 	 * To here
 	 */
@@ -82,15 +105,15 @@ function Hive(){
 Hive.prototype.addHoney = function(honey) {
   return this.honey += honey;
 };
+/*
+ * Edit from here
+ */
 function Bee(hive){
 	this.capacity = 11;
 	this.hive = hive;
 }
-/*
- * Edit from here
- */
 Bee.prototype.unloadHoney = function() {
-	//hive.addHoney(this.capacity);
+	this.hive.addHoney(this.capacity);
 };
 /*
  * To here
@@ -114,7 +137,13 @@ function once(fn){
 	/*
 	 * Edit from here
 	 */
-	
+	var callable = true;
+	return function(){
+		if(callable){
+			callable = false;
+			return fn.apply(this, arguments);
+		}
+	}
 	/*
 	 * To here
 	 */
