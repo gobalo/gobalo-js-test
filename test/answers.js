@@ -13,6 +13,13 @@
  * 1. Inserta dentro de este elemento un <div> con id "testDiv", con las medidas 100x50px de ancho y con el color de fondo "#cccccc"
  * 2. Dentro del nuevo "testDiv" inserta un <p> con cualquier texto
  * 3. Por último inserta un <span> con otro texto diferente ANTES del <p> anterior
+ * 4. El html resultante sería:
+ * 	<div id="content">
+ * 		<div id="testDiv" style="width:100px;height:50px:background-color:#ccc;">
+ * 			<span>Esto es un span</span>
+ * 			<p>Esto es un parrafo</p>
+ * 		</div>
+ * 	</div>
  */
 function testjQuery(){
 	/*
